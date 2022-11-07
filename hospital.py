@@ -2,17 +2,53 @@ import random
 
 sint=[];
 lista=[];
-nombre=[];
+paciente_nombre=[];
 
-nombre.append(input("Cual es tu nombre:"));
-nombre.append(input("Cual es tu apellido:"))
-print(nombre)
+
+
+
+
+def validar_data(paciente_nombre):
+    """
+    Funcion para validar nombre del paciente
+    """
+    is_valid_name = paciente_nombre.replace(" ", "").isalpha()
+    
+    
+
+    if not is_valid_name:
+
+        print("Ingresa un nombre valido")
+
+    return is_valid_name
+
+
+
+paciente_nombre=(input("Cual es tu nombre?:"));
+list(paciente_nombre)
+print("".join(paciente_nombre))
+
+
+
+while not validar_data(paciente_nombre):
+
+   paciente_nombre=(input("Cual es tu nombre?:"));
+   
+
+print(f"Hola {paciente_nombre}. Estamos preparado para ingresarte!")
+sint.append(paciente_nombre)
+
 
 while True:
     
-    
-        sint.append(input("Tenes algunos de los siguientes sintomas: 1.Fiebre  2.Vomitos 3.Dificultad Respiratoria"))
-        
+        try:
+            sint.append(int(input("Tenes algunos de los siguientes sintomas: 1.Fiebre  2.Vomitos 3.Dificultad Respiratoria")))
+        except ValueError:
+            print("Ingresa una opcion correcta: 1.Fiebre  2.Vomitos 3.Dificultad Respiratoria")
+            continue;
+            
+            
+        print(sint)
         salir=input("Desea ingresar otro sintoma?: Si/No")
         if salir == 'S': 
             continue;
